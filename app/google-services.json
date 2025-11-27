@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "665667471108",
+    "project_id": "asma-348c0",
+    "storage_bucket": "asma-348c0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665667471108:android:0fbe5d428d28a6073a3251",
+        "android_client_info": {
+          "package_name": "com.example.coffeeshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ0HrxF9hKE3BOV5wjvfTIOebrYinhr3k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
