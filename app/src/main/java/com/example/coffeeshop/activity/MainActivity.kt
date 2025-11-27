@@ -88,20 +88,30 @@ class MainActivity : BaseActivity() {
 
     private fun bottomMenu() {
         binding.cartBtn.setOnClickListener {
-            val intent = Intent(this@MainActivity, CartActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this@MainActivity, CartActivity::class.java))
         }
 
-        binding.bottomNavigation.setOnItemSelectedListener { item ->
-            when (item.itemId) {
+        binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.home -> {
+                    // Already on home
+                    true
+                }
                 R.id.profile -> {
-                    // Check if user is logged in before accessing profile
                     val auth = FirebaseAuth.getInstance()
                     if (auth.currentUser != null) {
-                        startActivity(Intent(this, ProfileActivity::class.java))
+                        startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
                     } else {
-                        startActivity(Intent(this, LoginActivity::class.java))
+                        startActivity(Intent(this@MainActivity, LoginActivity::class.java))
                     }
+                    true
+                }
+                R.id.favorites -> {
+                    startActivity(Intent(this@MainActivity, FavoritesActivity::class.java))
+                    true
+                }
+                R.id.settings -> {
+                    startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
                     true
                 }
                 else -> false

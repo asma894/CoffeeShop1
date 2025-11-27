@@ -2,10 +2,6 @@ package com.example.coffeeshop.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -13,6 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.coffeeshop.R
 import com.example.coffeeshop.adapter.SizeAdapter
 import com.example.coffeeshop.databinding.ActivityDetailedBinding
+import com.example.coffeeshop.helper.ManagementFavorites
 import com.example.coffeeshop.helper.ManagmentCart
 import com.example.coffeeshop.model.ItemsModel
 
@@ -23,14 +20,37 @@ class DetailedActivity : BaseActivity() {
         ActivityDetailedBinding.inflate(layoutInflater)
     }
     private lateinit var managementcart: ManagmentCart
+    private lateinit var managementFavorites: ManagementFavorites
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         managementcart = ManagmentCart(this)
+        managementFavorites = ManagementFavorites(this)
+
         bundle()
         initSizeList()
+        setupFavoriteButton()
+    }
+
+    private fun setupFavoriteButton() {
+        // Set initial state
+        updateFavoriteIcon()
+
+        // Handle favorite button click
+        binding.ivFavourite.setOnClickListener {
+            managementFavorites.toggleFavorite(item)
+            updateFavoriteIcon()
+        }
+    }
+
+    private fun updateFavoriteIcon() {
+        if (managementFavorites.isFavorite(item)) {
+            binding.ivFavourite.setImageResource(R.drawable.ic_favorite_filled)
+        } else {
+            binding.ivFavourite.setImageResource(R.drawable.ic_favorite_border)
+        }
     }
 
     private fun initSizeList() {
@@ -43,7 +63,8 @@ class DetailedActivity : BaseActivity() {
         binding.rvSizeList.adapter = SizeAdapter(this, sizeList)
         binding.rvSizeList.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-         val colorList = ArrayList<String>()
+
+        val colorList = ArrayList<String>()
         for(imageUrl in item.picUrl){
             colorList.add(imageUrl)
         }
@@ -52,7 +73,6 @@ class DetailedActivity : BaseActivity() {
             .load(colorList[0])
             .apply(RequestOptions.bitmapTransform(RoundedCorners(100)))
             .into(binding.shapeableImageView)
-
     }
 
     @SuppressLint("SetTextI18n")

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/home"
         android:title=""
         android:icon="@drawable/bottom_btn1"
         app:iconTint="@color/black"/>
@@ -19,11 +20,13 @@
         android:enabled="false"/>
 
     <item
+        android:id="@+id/favorites"
         android:title=""
         android:icon="@drawable/bottom_btn3"
         app:iconTint="@color/black"/>
 
     <item
+        android:id="@+id/settings"
         android:icon="@drawable/bottom_btn4"
         android:title=""
         app:iconTint="@color/black"/>
