@@ -7,12 +7,14 @@ import android.text.TextWatcher
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.coffeeshop.R
 import com.example.coffeeshop.adapter.CategoryAdapter
 import com.example.coffeeshop.adapter.OffersAdapter
 import com.example.coffeeshop.adapter.PopularAdapter
 import com.example.coffeeshop.databinding.ActivityMainBinding
 import com.example.coffeeshop.model.ItemsModel
 import com.example.coffeeshop.viewmodel.MainViewModel
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : BaseActivity() {
 
@@ -88,6 +90,22 @@ class MainActivity : BaseActivity() {
         binding.cartBtn.setOnClickListener {
             val intent = Intent(this@MainActivity, CartActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.profile -> {
+                    // Check if user is logged in before accessing profile
+                    val auth = FirebaseAuth.getInstance()
+                    if (auth.currentUser != null) {
+                        startActivity(Intent(this, ProfileActivity::class.java))
+                    } else {
+                        startActivity(Intent(this, LoginActivity::class.java))
+                    }
+                    true
+                }
+                else -> false
+            }
         }
     }
 

@@ -8,6 +8,7 @@
         app:iconTint="@color/black"/>
 
     <item
+        android:id="@+id/profile"
         android:title=""
         android:icon="@drawable/bottom_btn2"
         app:iconTint="@color/black"/>

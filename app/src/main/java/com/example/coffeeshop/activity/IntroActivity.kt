@@ -2,11 +2,6 @@ package com.example.coffeeshop.activity
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.coffeeshop.R
 import com.example.coffeeshop.databinding.ActivityIntroBinding
 
 class IntroActivity : BaseActivity() {
@@ -20,7 +15,7 @@ class IntroActivity : BaseActivity() {
         setContentView(binding.root)
 
         binding.startBtn.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 }
