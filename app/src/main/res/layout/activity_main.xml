@@ -162,6 +162,20 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <TextView
+                        android:id="@+id/emptyTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No coffee found"
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:visibility="gone"
+                        android:padding="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
@@ -268,7 +282,7 @@
             app:layout_anchor="@id/app_bar"
             android:pointerIcon="wait"
             tools:ignore="ContentDescription" />
-        
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
