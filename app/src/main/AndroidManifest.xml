@@ -55,6 +55,19 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
+            android:name=".activity.CheckoutActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".activity.OrderSuccessActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activity.AllProductsActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".activity.DetailedActivity"
             android:exported="false" />
 
@@ -65,6 +78,7 @@
         <activity
             android:name=".activity.MainActivity"
             android:exported="false" />
+
         <activity
             android:name=".activity.FavoritesActivity"
             android:exported="false"

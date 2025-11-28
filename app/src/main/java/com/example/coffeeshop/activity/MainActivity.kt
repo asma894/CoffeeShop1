@@ -37,6 +37,13 @@ class MainActivity : BaseActivity() {
         initOffer()
         bottomMenu()
         setupSearch()
+        setupSeeAll()
+    }
+
+    private fun setupSeeAll() {
+        binding.seeAllBtn.setOnClickListener {
+            startActivity(Intent(this@MainActivity, AllProductsActivity::class.java))
+        }
     }
 
     private fun setupSearch() {
@@ -94,7 +101,6 @@ class MainActivity : BaseActivity() {
         binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home -> {
-                    // Already on home, do nothing
                     true
                 }
                 R.id.profile -> {

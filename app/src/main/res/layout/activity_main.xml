@@ -125,12 +125,15 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/seeAllBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:text="@string/see_all"
                         android:textColor="@color/white"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="8dp" />
 
                 </LinearLayout>
 
@@ -241,6 +244,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -248,7 +252,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/app_bar"
+            android:id="@+id/bottomAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -258,7 +262,7 @@
             android:backgroundTint="@color/white">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_navigation"
+                android:id="@+id/bottomNavigation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -267,6 +271,7 @@
                 android:background="@android:color/transparent"
                 app:itemIconTint="@color/black"
                 app:itemTextColor="@color/black"
+                app:labelVisibilityMode="unlabeled"
                 app:menu="@menu/nav_item"/>
 
         </com.google.android.material.bottomappbar.BottomAppBar>
@@ -279,8 +284,7 @@
             app:tint="@color/white"
             app:backgroundTint="@color/orange"
             app:maxImageSize="25dp"
-            app:layout_anchor="@id/app_bar"
-            android:pointerIcon="wait"
+            app:layout_anchor="@id/bottomAppBar"
             tools:ignore="ContentDescription" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
