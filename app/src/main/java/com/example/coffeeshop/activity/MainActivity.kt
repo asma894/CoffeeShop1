@@ -94,7 +94,7 @@ class MainActivity : BaseActivity() {
         binding.bottomNavigation.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home -> {
-                    // Already on home
+                    // Already on home, do nothing
                     true
                 }
                 R.id.profile -> {
